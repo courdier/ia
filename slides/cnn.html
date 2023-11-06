@@ -5,32 +5,14 @@
     <title>Deep Learning Lectures</title>
     <meta charset="utf-8">
     <style>
-        .left-column {
-            width: 50%;
-            float: left;
-        }
-
-        .right-column {
-            width: 50%;
-            float: right;
-        }
-
-        .grey {
-            color: #bbbbbb;
-        }
-
-        .small {
-            font-size: 50%
-        }
-
-        .big {
-            font-size: 150%
-        }
-
-
+        .left-column {width: 50%; float: left;}
+        .right-column {width: 50%; float: right;}
+        .grey {color: #bbbbbb;}
+        .small {font-size: 50%}
+        .big {font-size: 150%}
         .credit {
             position: absolute;
-            float: left;
+            float:left;
             bottom: 0em;
             margin: 0em 0em;
             font-size: 0.4em;
@@ -43,34 +25,38 @@
     <textarea id="source">
 class: center, middle
 
+<!-----========================================================================================-------------->
+
 # Introduction au Deep Learning
 
 ## Réseaux de Neurones Convolutionnels
 
-### Evann Courdier
+###Rémy Courdier (UR)<BR>avec des slides de Evann Courdier (EPFL)
 
-18 juin 2019
+<p id="last-updated">Dernière mise à jour : </p>
 
 .affiliations[
-  ![UR](images/logoUR.png)
-  ![EPFL](images/logoEPFL.png)
+  ![UR](images/init/logoUR.png)
+  ![EPFL](images/init/logoEPFL.png)
 ]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-# Plan de la journée
+Plan du cours
 
 ### En théorie...
 
-- .grey[Introduction: Deep Learning - Pourquoi et où ?]
+- .grey[Présentation Générale Machine Learning et Deep Learning]
 - .grey[Réseau de neurones: Description et entraînements]
 - Vision: Introduction aux réseaux neuronnaux convolutionnels
 - .grey[Le deep learning : limites et éthique]    
 
-### .grey[En pratique...]
-
-- .grey[Implementation de word2vec en PyTorch]
-- .grey[Utilisation d'un CNN pré-entrainé]
+.grey[
+### En pratique...
+- TP : Classification d’images satellitaires
+- TP : Object detection / counting 
+]
 
 ---
 
@@ -110,7 +96,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_1.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_1.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -118,7 +104,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_2.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_2.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -126,7 +112,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_3.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_3.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -134,7 +120,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_4.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_4.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -142,7 +128,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_5.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_5.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -150,7 +136,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_6.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_6.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -158,7 +144,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_7.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_7.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -166,7 +152,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_8.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_8.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -174,7 +160,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 1d
 
 .center[
-<img src="images/conv1d_9.png" style="width: 600px;" /><br/>
+<img src="images/init/conv1d_9.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -188,7 +174,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 - Noyau de dimensions $3 \times 3$
 
 .center[
-    <img src="images/numerical_no_padding_no_strides.gif" style="width: 80%;" />
+    <img src="images/init/numerical_no_padding_no_strides.gif" style="width: 80%;" />
 ]
 
 ---
@@ -196,7 +182,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution d'une image (Noir & Blanc)
 
 .center[
-    <img src="images/conv2d_BW.gif" style="width: 100%;" />
+    <img src="images/init/conv2d_BW.gif" style="width: 100%;" />
 ]
 
 ---
@@ -204,7 +190,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 
 
 .center[
-    <img src="images/conv2d_rgb.gif" style="width: 100%;" />
+    <img src="images/init/conv2d_rgb.gif" style="width: 100%;" />
 ]
 
 
@@ -214,15 +200,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_1.png" style="width: 600px;" /><br/>
-]
-
-.credit[Slide credit: F. Fleuret]
----
-## Convolution 2d
-
-.center[
-<img src="images/conv2d_2.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_1.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -230,7 +208,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_3.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_2.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -238,7 +216,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_4.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_3.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -246,7 +224,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_5.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_4.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -254,7 +232,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_6.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_5.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -262,7 +240,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_7.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_6.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -270,7 +248,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_8.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_7.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -278,7 +256,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_9.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_8.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -286,7 +264,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_10.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_9.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -294,7 +272,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_11.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_10.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -302,7 +280,15 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_12.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_11.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/init/conv2d_12.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -311,7 +297,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 ## Convolution 2d
 
 .center[
-<img src="images/conv2d_13.png" style="width: 600px;" /><br/>
+<img src="images/init/conv2d_13.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -325,7 +311,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 - Exemple de filtres "3D" (3 canaux RGB) appris:
 
 .center[
-    <img src="images/conv_2d_bank.png" style="width: 600px;" />
+    <img src="images/init/conv_2d_bank.png" style="width: 600px;" />
 <br/> ]
 
 
@@ -338,7 +324,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 - Plusieurs type: average pooling, max pooling, ...
 
 .center[
-    <img src="images/pooling_1.png" style="width: 600px;" />
+    <img src="images/init/pooling_1.png" style="width: 600px;" />
 ]
 
 ---
@@ -350,7 +336,7 @@ Un réseau convolutionnel l'est car il applique la même transformation linéair
 - Plusieurs type: average pooling, max pooling, ...
 
 .center[
-    <img src="images/pooling.png" style="width: 600px;" />
+    <img src="images/init/pooling.png" style="width: 600px;" />
 ]
 
 ???
@@ -361,7 +347,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_1.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_1.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -369,7 +355,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_2.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_2.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -377,7 +363,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_3.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_3.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -385,7 +371,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_4.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_4.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -393,7 +379,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_5.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_5.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -401,7 +387,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_6.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_6.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -409,7 +395,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 1d
 
 .center[
-<img src="images/maxpool1d_7.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool1d_7.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -418,7 +404,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_1.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_1.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -426,7 +412,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_2.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_2.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -434,7 +420,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_3.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_3.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -442,7 +428,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_4.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_4.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -450,7 +436,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_5.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_5.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -458,7 +444,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_6.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_6.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -466,16 +452,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_7.png" style="width: 600px;" /><br/>
-]
-
-.credit[Slide credit: F. Fleuret]
-
----
-## Max-Pooling 2d
-
-.center[
-<img src="images/maxpool2d_8.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_7.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -484,7 +461,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_9.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_8.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -493,7 +470,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_10.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_9.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -502,7 +479,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_11.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_10.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -511,7 +488,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_12.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_11.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -520,7 +497,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_13.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_12.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -529,7 +506,7 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_14.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_13.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -538,7 +515,16 @@ Conserve l'invariance par translation
 ## Max-Pooling 2d
 
 .center[
-<img src="images/maxpool2d_15.png" style="width: 600px;" /><br/>
+<img src="images/init/maxpool2d_14.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/init/maxpool2d_15.png" style="width: 600px;" /><br/>
 ]
 
 .credit[Slide credit: F. Fleuret]
@@ -549,7 +535,7 @@ Conserve l'invariance par translation
 Une couche de réseau convolutionnel est composée d'une convolution, d'une activation et d'un pooling.
 
 .center[
-<img src="images/conv_layers.png" style="width: 600px;" />
+<img src="images/init/conv_layers.png" style="width: 600px;" />
 <br/> ]
 
 ---
@@ -561,7 +547,7 @@ Une couche de réseau convolutionnel est composée d'une convolution, d'une acti
 - La dernière couche est une couche de classification (non convolutionnelle)
 
 .center[
-<img src="images/cnn.png" style="width: 90%;" /><br/>
+<img src="images/init/cnn.png" style="width: 90%;" /><br/>
 ]
 
 
@@ -572,7 +558,7 @@ Une couche de réseau convolutionnel est composée d'une convolution, d'une acti
 <br />
 <br />
 .center[
-<img src="images/googlenet.png" style="width: 100%;" /><br/>
+<img src="images/init/googlenet.png" style="width: 100%;" /><br/>
 ]
 
 ---
@@ -580,7 +566,7 @@ Une couche de réseau convolutionnel est composée d'une convolution, d'une acti
 ## D'autres architectures: Resnet
 
 .center[
-<img src="images/resnet.png" style="height: 550px;" /><br/>
+<img src="images/init/resnet.png" style="height: 550px;" /><br/>
 ]
 
 ---
@@ -588,7 +574,7 @@ Une couche de réseau convolutionnel est composée d'une convolution, d'une acti
 ## Comparaison des modèles
 
 .center[
-<img src="images/comparison_deep.png" style="width: 110%;" /><br/>
+<img src="images/init/comparison_deep.png" style="width: 110%;" /><br/>
 ]
 
 ---
@@ -599,45 +585,57 @@ Une couche de réseau convolutionnel est composée d'une convolution, d'une acti
 
 <br />
 
-<img src="images/deeper.png" style="width: 500px;" /><br/>
+<img src="images/init/deeper.png" style="width: 500px;" /><br/>
 ]
 
 --
 
 .center[[Go to Ethique](ethique.html)]
 
-    </textarea>
-    <style TYPE="text/css">
-        code.has-jax {
-            font: inherit;
-            font-size: 100%;
-            background: inherit;
-            border: inherit;
-        }
-    </style>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-      tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
-      }
-      });
-      MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
-		     all[i].SourceElement().parentNode.className += ' has-jax';
-		     }
-		     });
-		     </script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="static/remark-latest.min.js"></script>
-    <script type="text/javascript">
-        var slideshow = remark.create({
-            highlightStyle: 'github',
-            highlightSpans: true,
-            highlightLines: true
-        });
-    </script>
+<!-----========================================================================================-------------->
+
+</textarea>
+<style TYPE="text/css">
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+    }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+    });
+    MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+            });
+            </script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="static/remark-latest.min.js"></script>
+<script type="text/javascript">
+    var slideshow = remark.create({
+        highlightStyle: 'github',
+        highlightSpans: true,
+        highlightLines: true
+    });
+
+    var currentDate = new Date(); 
+    var lastUpdatedElement = document.getElementById("last-updated");
+    // Format de la date en chaîne de caractères (par exemple : "31 octobre 2023")
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    var formattedDate = currentDate.toLocaleDateString("fr-FR", options);
+    lastUpdatedElement.textContent += formattedDate;
+
+    var maFleche = "&#x27A5;";
+    document.getElementById("maFleche").innerHTML = maFleche;
+</script>
 </body>
 
 </html>

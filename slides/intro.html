@@ -4,8 +4,8 @@
 		<title>Deep Learning et Geomatique</title>
 		<meta charset="utf-8">
 		<style>
-			.left-column { width: 50%; float: left; }
-			.right-column { width: 50%; float: right; }
+			.left-column { width: 40%; float: left; }
+			.right-column { width: 60%; float: right; }
 			.grey { color: #bbbbbb; }
 			.medium { font-size: 80%; }
 			.mmmedium { font-size: 65%; }
@@ -18,31 +18,38 @@
     	<textarea id="source">
 class: center, middle
 
-<!----------------------------------------------------------------------------------------------------------->
-# Introduction au Deep Learning pour la Geomatique
+<!-----========================================================================================-------------->
+
+# Introduction au Deep Learning pour la Télédétection
 ### Rémy Courdier
-novembre 2023
-.affiliations[ ![UR](images/logoUR.png)]
+
+<p id="last-updated">Dernière mise à jour : </p>
+
+.affiliations[ ![UR](images/init/logoUR.png)]
+
 .footer[Avec des slides de Evann Courdier, Charles Ollion et Olivier Grisel <BR>(EPFL, INRIA) ]
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-<!----------------------------------------------------------------------------------------------------------->
 # Plan du cours
+
 ### En théorie...
 - Présentation Générale Machine Learning et Deep Learning 
-- Aspects theorique du Machine learning et Deep Laerning (modèles et architectures,…)
-- Présentation Deep Learning for GIS
-???
-Pourquoi maintenant DL et ou c'est utilisé
+- .grey[Aspects theorique du Machine learning et Deep Laerning<br> (modèles et architectures,…)]
+- .grey[Présentation Deep Learning for GIS]
+
 --
 count:false
+.grey[
 ### En pratique...
-- TP : Classification d’images (satellites) : FastAI + PyTorch
-- TP : Object detection / counting : PyTorch?
+- TP : Classification d’images satellitaires
+- TP : Object detection / counting
+]
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-<!----------------------------------------------------------------------------------------------------------->
-# Machine Learning
+# Machine Learning (ML)
+
 .center[Le Machine Learning est un domaine de l'intelligence artificielle qui consiste à développer des algorithmes capables d'apprendre à partir de données
 dans le but de résoudre une grande variété de problèmes et prendre des décisions.]
 
@@ -53,92 +60,126 @@ dans le but de résoudre une grande variété de problèmes et prendre des déci
 - construction de l'algorythme qui génère la logique en se basant sur les données.
 
 ???
-Generiques = code de l'algo n'est pas propre a un pbm en particulier
+	Generiques = code de l'algo n'est pas propre a un pbm en particulier
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-<!----------------------------------------------------------------------------------------------------------->
+layout:true
+
 # Machine Learning traditionnel
+
+---
+
+.left-column[
+
 ### Supervisé :
 - Classification
-- Regression
+- Régression
+
+.grey[### Non supervisé :
+- Clustering
+- Modèles génératifs
+]]
+.right-column[
+.right[<img src="images/rc-intro/fig_apprentssage_supervise.png" style="width: 110%;" />]
+]
+
+---
+
+count:false
+
+.left-column[
+
+### Supervisé :
+- Classification
+- Régression
+
 ### Non supervisé :
 - Clustering
 - Modèles génératifs
+]
+.right-column[
+<br><br><br><br><br><br>
+.right[<img src="images/rc-intro/fig_apprentissage_non supervise.png" style="width: 110%;" />]
+]
+
 ???
-En supervisé, on a un objectif particulier à prédire, par exemple dans la cas de la classif, etant donné une image en entrée, dire si c'est ...
-En non supervisé, il n'y a pas d'objectif. On veut que l'algorithme trouve des tendances, des motifs dans les données.
+	En supervisé, on a un objectif particulier à prédire, par exemple dans la cas de la classif, etant donné une image en entrée, dire si c'est ...
+	En non supervisé, il n'y a pas d'objectif. On veut que l'algorithme trouve des tendances, des motifs dans les données.
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-<!----------------------------------------------------------------------------------------------------------->
+layout:false
+
 # ML traditionnel - Classification
-.center[<img src="images/catsandogs.jpg" style="width: 100%;" />]
+.center[<img src="images/init/catsandogs.jpg" style="width: 100%;" />]
 --
 count:false
-.center[<img src="images/cat.jpg" style="width: 20%;" />]
+.center[<img src="images/init/cat.jpg" style="width: 20%;" />]
 .center[.big[?]]
----
-
 <!----------------------------------------------------------------------------------------------------------->
+
+---
 ## ML - Classification et Télédétection
 .mmmedium[Algorithme de "classification au plus proche voisin" largement répandu dans le monde de la télédétection.
 	Technique qui repose sur une digitalisation manuelle de régions d’entraînement.<BR>
 	Pour chaque zone d’entraînement appelées **Region Of Interest (ROI)**, les valeurs des pixels sous-jacents sont relevées, 
 	les moyennes sont calculées, et chaque classe est ainsi caractérisée par une signature radiométrique. 
 	On associe alors à chaque pixel d'une l’image, la classe qui lui est le plus proche d’un point de vue radiométrique.]
-.center[<img src="images/fig_classif_dist_min_bandes - Grande.png" style="width: 90%;" />]
-.credits[source : Paul Passy (2017) - https://www.ppassy.fr/teledetection/2017/03/20/la-classification-au-plus-proche-voisin/]
-
----
-<!----------------------------------------------------------------------------------------------------------->
-# ML traditionnel - Regression
 .center[
-<img src="images/regression.png" style="width: 100%;" />
+	<img src="images/rc-intro/fig_classif_dist_min_bandes - Grande.png" style="width: 90%;" /><br>
+	.credits[Paul Passy (2017) - https://www.ppassy.fr/teledetection/2017/03/20/la-classification-au-plus-proche-voisin/]
 ]
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-<!----------------------------------------------------------------------------------------------------------->
-## ML - Régression et Télédétection
-.mmmedium[Algorithme ...]
+# ML traditionnel - Régression
 .center[
-<img src="images/.png" style="width: 90%;" />
+<img src="images/init/regression.png" style="width: 100%;" />
 ]
-.credits[source : Paul Passy (2017) - https://www.ppassy.fr/teledetection/2017/03/20/la-classification-au-plus-proche-voisin/]
----
-
 <!----------------------------------------------------------------------------------------------------------->
-# ML traditionnel - Clustering
-.center[<img src="images/clustering.png" style="width: 100%;"/>]
----
-<!----------------------------------------------------------------------------------------------------------->
-# ML traditionnel - Modèles génératifs
-.center[<img src="images/imInput.jpg" style="width: 25%;" /> <span class="big" style="position:relative;bottom:80px;margin: 0  50px;">+</span> <img src="images/imStyle.jpg" style="width: 25%;" />]
---
-count:false
-.center[<img src="images/imOutput.jpg" style="width: 30%;"/>]
----
-
-<!----------------------------------------------------------------------------------------------------------->
-# ML traditionnel - Modèles génératifs
-.center[<img src="images/imOutput.jpg" style="width: 60%;"/>]
----
-
-<!----------------------------------------------------------------------------------------------------------->
-
-# Machine Learning traditionnel
-.center[<img src="images/image_ml.png" style="width: 670px;" />]
---
-.center[<img src="images/image_ml_2.png" style="width: 670px;" />]
 ---
 
 exclude:true
 
+## ML - Régression et Télédétection
+
+.mmmedium[Algorithme ...]
+.center[
+<img src="images/rc-intro/fig_ML_regression_teledetection.png" style="width: 90%;" />
+]
+.credits[source : Jérôme Lejot, Hervé Piégay, Peter David. Hunter, Bertrand Moulin et Mathieu Gagnage (2013) - https://doi.org/10.4000/geomorphologie.9362]
+
+??? page exclue du diaporama
 <!----------------------------------------------------------------------------------------------------------->
-# Deep Learning
-## ici une diapo exclue de la présentation
 ---
 
+# ML traditionnel - Clustering
+.center[<img src="images/init/clustering.png" style="width: 100%;"/>]
 <!----------------------------------------------------------------------------------------------------------->
-# Qu'est ce que le deep learning
+---
+
+# ML traditionnel - Modèles génératifs
+.center[<img src="images/init/imInput.jpg" style="width: 25%;" /> <span class="big" style="position:relative;bottom:80px;margin: 0  50px;">+</span> <img src="images/init/imStyle.jpg" style="width: 25%;" />]
+--
+count:false
+.center[<img src="images/init/imOutput.jpg" style="width: 30%;"/>]
+<!----------------------------------------------------------------------------------------------------------->
+---
+count:false
+## ML traditionnel - Modèles génératifs
+.center[<img src="images/init/imOutput.jpg" style="width: 60%;"/>]
+<!----------------------------------------------------------------------------------------------------------->
+---
+
+# Machine Learning traditionnel
+.center[<img src="images/init/image_ml.png" style="width: 670px;" />]
+--
+.center[<img src="images/init/image_ml_2.png" style="width: 670px;" />]
+<!----------------------------------------------------------------------------------------------------------->
+---
+
+# Vers le Deep Learning ...
 
 - Réseaux de Neurones, avec un grand nombre de couches/modules.
 
@@ -170,14 +211,16 @@ count:false
 
 count:false
 
--  Programmation fonctionnelle differentiable
+-  Programmation fonctionnelle différentiable
 
-.center[<img src="images/image_dl.png" style="width: 100%;" />]
+.center[<img src="images/init/image_dl.png" style="width: 100%;" />]
 
 ???
 	On va voir plus tard ce que ca veut dire concretement, mais vous pouvez retenir que c'est cette propriété qui nous permet d'entrainer le réseau automatiquement
+<!----------------------------------------------------------------------------------------------------------->
 
 ---
+
 layout:true
 
 # Pourquoi maintenant ?
@@ -193,6 +236,8 @@ layout:true
 - .grey[Outils et modèles open-source]
 
 ---
+
+<!----------------------------------------------------->
 - Une meilleure compréhension des algorithmes
 
 - Puissance de calcul (GPUs, TPUs, ...)
@@ -202,11 +247,12 @@ layout:true
 - .grey[Outils et modèles open-source]
 
 .center[
-<img src="images/gpu_tpu.png" style="width: 450px;" /><br/><br/>
+<img src="images/init/gpu_tpu.png" style="width: 450px;" /><br/><br/>
 <small>_GPU et TPU_</small>
 ]
 
 ---
+<!----------------------------------------------------->
 
 - Une meilleure compréhension des algorithmes
 
@@ -217,11 +263,11 @@ layout:true
 - .grey[Outils et modèles open-source]
 
 .center[
-<img src="images/ng_data_perf.svg" style="width: 400px;" /><br/><br/>
+<img src="images/init/ng_data_perf.svg" style="width: 400px;" /><br/><br/>
 <small>_Adapted from Andrew Ng_</small>
 ]
-
 ---
+<!----------------------------------------------------->
 
 - Une meilleure compréhension des algorithmes
 
@@ -232,37 +278,39 @@ layout:true
 - Outils et modèles open-source 
 
 .center[
-<img src="images/frameworks.png" style="width: 500px;" /><br/><br/>
+<img src="images/init/frameworks.png" style="width: 500px;" /><br/><br/>
 ]
+<!----------------------------------------------------------------------------------------------------------->
 
 ---
+
 layout:false
 
 # DL Today: Speech-to-Text
 
 .center[
-<img src="images/speech.png" style="width: 780px;" />
+<img src="images/init/speech.png" style="width: 780px;" />
 ]
 
 ---
 # DL Today: Vision
 
 .center[
-<img src="images/vision.png" style="width: 720px;" />
+<img src="images/init/vision.png" style="width: 720px;" />
 ]
 
 ---
 # DL Today: Vision
 
 .center[
-<img src="images/vision2.png" style="width: 720px;" />
+<img src="images/init/vision2.png" style="width: 720px;" />
 ]
 
 ---
 # DL Today: NLP
 
 .center[
-<img src="images/nlp.png" style="width: 600px;" />
+<img src="images/init/nlp.png" style="width: 600px;" />
 ]
 
 ---
@@ -270,7 +318,7 @@ layout:false
 
 
 .center[
-<img src="images/nlp2.png" style="width: 720px;" />
+<img src="images/init/nlp2.png" style="width: 720px;" />
 ]
 
 --
@@ -282,21 +330,21 @@ La plupart des chatbots qui disent utiliser l' I.A. ne font pas de DL
 # DL Today: Vision + NLP
 
 .center[
-<img src="images/nlp_vision.png" style="width: 760px;" />
+<img src="images/init/nlp_vision.png" style="width: 760px;" />
 ]
 
 ---
 # DL Today: Traitement d'Image
 
 .center[
-<img src="images/vision_translation.png" style="width: 700px;" />
+<img src="images/init/vision_translation.png" style="width: 700px;" />
 ]
 
 ---
-# DL Today: Modèles Generatifs
+# DL Today: Modèles Génératifs
 
 .center[
-<img src="images/nvidia_celeb.jpg" style="width: 350px;" />
+<img src="images/init/nvidia_celeb.jpg" style="width: 350px;" />
 <br/>Sampled celebrities [Nvidia 2017]
 ]
 
@@ -304,7 +352,7 @@ La plupart des chatbots qui disent utiliser l' I.A. ne font pas de DL
 count:false
 
 .center[
-<img src="images/stackgan.jpg" style="width: 600px;" />
+<img src="images/init/stackgan.jpg" style="width: 600px;" />
 <br/>StackGAN v2 [Zhang 2017]
 ]
 
@@ -312,7 +360,7 @@ count:false
 ---
 # DL Today: Modèles Generatifs
 .center[
-<img src="images/WaveNet.gif" style="width: 400px;" />
+<img src="images/init/WaveNet.gif" style="width: 400px;" />
 <br/>Sound generation with WaveNet [DeepMind 2017]
 ]
 
@@ -323,113 +371,104 @@ Lequel est generé artificiellement ?
 
 .center[
 
-<audio controls><source src="images/columbia_gen.wav"></audio> <br/>
+<audio controls><source src="images/init/columbia_gen.wav"></audio> <br/>
 
-<audio controls><source src="images/columbia_gt.wav"></audio>
+<audio controls><source src="images/init/columbia_gt.wav"></audio>
 
 <small>_Tacotron 2 Natural TTS Synthesis by Conditioning WaveNet on Mel Spectrogram Predictions, 2017_</small>
 ]
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 # DL en sciences
 
-.center[
-<img src="images/deepgenomics.png" style="width: 580px;" />
-]
+.center[<img src="images/init/deepgenomics.png" style="width: 580px;" />]
 
 --
 count:false
 
-.center[
-<img src="images/deep_other.png" style="width: 680px;" />
-]
-
+.center[<img src="images/init/deep_other.png" style="width: 680px;" />]
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 # DL en sciences
 
 .center[
-<img src="images/deepgenomics.png" style="width: 580px;" />
+<img src="images/init/deepgenomics.png" style="width: 580px;" />
 ]
 
-.center[
-<img src="images/Accelerating_Eulerian_Fluid_Simulation_with_Convolutional_Networks.gif" style="width: 350px;" />
-]
-
+.center[<img src="images/init/Accelerating_Eulerian_Fluid_Simulation_with_Convolutional_Networks.gif" style="width: 350px;" />]
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 # DL pour les jeux (IA)
 
-.center[
-<img src="images/games.png" style="width: 650px;" />
-]
+.center[<img src="images/init/games.png" style="width: 650px;" />]
 
 --
 count:false
 
 <small> AlphaGo/Zero: Monte Carlo Tree Search, Deep Reinforcement Learning, self-play </small>
+<!----------------------------------------------------------------------------------------------------------->
 
 ---
-# Domaines de recherche
+# DL appliqué à la télédétection
+
+.left-column[
+	.medium[
+- Classification d'images
+
+- Détection d'objets
+
+- Segmentation sémantique
+
+- Analyse de changements 
+
+- Reconstruction 3D
+
+- Super-résolution d'images
+
+- ...
+]
+]
 
 --
 count:false
+.right-column[
+.medium[
+- Classification d'images télédétectées, permettant d'identifier des des végétations, des bâtiments...
+- Détection d'objets d'intérêt, comme des véhicules, des infrastructures, des cours d'eau...
+- Attribution d'une classe à chaque pixel de l'image, permettant de segmenter l'image en régions
+- Détection les changements dans des séries temporelles d'images télédétectées, déforestation...
+- Création de modèles 3D de surfaces terrestres
+- Amélioration la résolution spatiale des images télédétectées, obtention des détails plus fins.
+- et bien d'autres applications encore...
+]
+]
 
-### Computer Vision
+.center[[<span id="maFleche"></span> NN](nn.html)]
+<!----------------------------------------------------------------------------------------------------------->
 
-???
+<!-----========================================================================================-------------->
 
-Reconnaissance, Segmentation, Description, Q&A, Génération, Transfert de style
+</textarea>
+	<script src="static/remark-latest.min.js"></script>
+	<script type="text/javascript">
+		var slideshow = remark.create({
+			highlightStyle: 'github',
+			highlightSpans: true,
+			highlightLines: true
+		});
 
-Aide à la décision: Application dans le domaine médical (repérer des tumeurs cancéreuse), de la défense (repérer des tanks)
+        var currentDate = new Date(); 
+        var lastUpdatedElement = document.getElementById("last-updated");
+        // Format de la date en chaîne de caractères ("31 octobre 2023")
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        var formattedDate = currentDate.toLocaleDateString("fr-FR", options);
+        lastUpdatedElement.textContent += formattedDate;
 
---
-count:false
-
-### NLP : Natural Language Processing
-
-???
-
-Traduction auto, Q&A sur texte, résumé auto, chatbot, IA?,  
-
--- ### Systèmes de Recommandation
-
-???
-
-Youtube, Netflix, Spotify, Uber, Facebook, Publicité en ligne, Service client
-
---
-count:false
-
-### GAN : Generative Adversarial Networks
-
-???
-
-Un réseau de neurone génère des images, un autre réseau essaye de deviner si l'image est réelle ou générée.
-Par ex. : Image à partir de texte
-
---
-count:false
-
-### Deep Reinforcement Learning
-
-???
-
-IA jeux, apprendre à marcher, ...
-
---
-count:false
-
-### Optimisation
-
-.center[[Go to NN](nn.html)]
-
-		</textarea>
-		<script src="static/remark-latest.min.js"></script>
-		<script type="text/javascript">
-			var slideshow = remark.create({
-				highlightStyle: 'github',
-				highlightSpans: true,
-				highlightLines: true
-			});
-		</script>
-	</body>
+		var maFleche = "&#x27A5;";
+        document.getElementById("maFleche").innerHTML = maFleche;
+	</script>
+</body>
 </html>

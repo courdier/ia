@@ -5,28 +5,11 @@
     <title>Deep Learning Lectures</title>
     <meta charset="utf-8">
     <style>
-        .left-column {
-            width: 50%;
-            float: left;
-        }
-
-        .right-column {
-            width: 50%;
-            float: right;
-        }
-
-        .grey {
-            color: #bbbbbb;
-        }
-
-        .small {
-            font-size: 50%
-        }
-
-        .big {
-            font-size: 150%
-        }
-
+        .left-column {width: 50%; float: left;}
+        .right-column {width: 50%; float: right;}
+        .grey {color: #bbbbbb;}
+        .small {font-size: 50%}
+        .big {font-size: 150%}
         .credit {
             position: absolute;
             float:left;
@@ -42,36 +25,42 @@
     <textarea id="source">
 class: center, middle
 
+<!-----========================================================================================-------------->
+
 # Introduction au Deep Learning
 
 ## Réseaux de Neurones
 
-### Evann Courdier
+###Rémy Courdier (UR)<BR>avec des slides de Evann Courdier (EPFL)
 
-18 juin 2019
+<p id="last-updated">Dernière mise à jour : </p>
 
 .affiliations[
-  ![UR](images/logoUR.png)
-  ![EPFL](images/logoEPFL.png)
+  ![UR](images/init/logoUR.png)
+  ![EPFL](images/init/logoEPFL.png)
 ]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
-# Plan de la journée
+Plan du cours
 
 ### En théorie...
 
-- .grey[Introduction: Deep Learning - Pourquoi et où ?]
+- .grey[Présentation Générale Machine Learning et Deep Learning ]
 - Réseau de neurones: Description et entraînements
 - .grey[Vision: Introduction aux réseaux neuronnaux convolutionnels]
 - .grey[Le deep learning: limite et éthique]    
 
-### .grey[En pratique...]
+--
+count:false
+.grey[
+### En pratique...
+- TP : Classification d’images satellitaires
+- TP : Object detection / counting 
+]
 
-- .grey[Implementation de word2vec en PyTorch]
-- .grey[Utilisation d'un CNN pré-entrainé]
-
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
 ## Notations
 
@@ -86,10 +75,10 @@ $$
 <br>
 
 .center[
-<img src="images/example_nn.png" style="width: 85%;" />
+<img src="images/init/example_nn.png" style="width: 85%;" />
 ]
 
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
 ## Notations
 
@@ -98,7 +87,6 @@ $$
 $$
 f( \boldsymbol{x} ,  W): \boldsymbol{x} \in \mathbb{R}^N \Longrightarrow f(\boldsymbol{x}) \in (0, 1)^K
 $$
-
 
 - Un élément du dataset $S$ est composé de :
 
@@ -113,39 +101,34 @@ $$
 f(\boldsymbol{x}; W)_c = p(Y=c|X=\boldsymbol{x})
 $$
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
 ## Neurone Artificiel
 
-.center[
-<img src="images/artificial_neuron.svg" style="width: 500px;" />
-]
+.center[<img src="images/init/artificial_neuron.svg" style="width: 500px;" />]
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
 ## Neurone Artificiel
 
-.center[
-<img src="images/artificial_neuron_2.svg" style="width: 500px;" />
-]
+.center[<img src="images/init/artificial_neuron_2.svg" style="width: 500px;" />]
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
 --
 
-.center[
-$z(\boldsymbol{x}) = w_0 x_0 + w_1 x_1 + ... + w_n x_n + b = \boldsymbol{w}^T \boldsymbol{x} + b$
-
-]
+.center[$z(\boldsymbol{x}) = w_0 x_0 + w_1 x_1 + ... + w_n x_n + b = \boldsymbol{w}^T \boldsymbol{x} + b$]
 
 ---
 
 ## Neurone Artificiel   
 
 .center[
-<img src="images/artificial_neuron_2.svg" style="width: 500px;" />
+<img src="images/init/artificial_neuron_2.svg" style="width: 500px;" />
 ]
 
 .credit[Slide credit: C. Ollion & O. Grisel]
@@ -165,33 +148,33 @@ $f(\boldsymbol{x}) = g(z(\boldsymbol{x})) = g(\boldsymbol{w}^T \boldsymbol{x} + 
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
 
 ## Couche de Neurones
 
 .center[
-<img src="images/neural_network.svg" style="width: 400px;" />
+<img src="images/init/neural_network.svg" style="width: 400px;" />
 ]
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
-
 
 ## Couche de Neurones
 
 .center[
-<img src="images/neural_network_2.svg" style="width: 400px;" />
+<img src="images/init/neural_network_2.svg" style="width: 400px;" />
 ]
 
 .credit[Slide credit: C. Ollion & O. Grisel]
-
 
 --
 
 .center[
-<img src="images/latex1.svg" style="width: 500px;" />
+<img src="images/init/latex1.svg" style="width: 500px;" />
 ]
 .center[
 $\mathbf{z(x)} = \boldsymbol{W} \boldsymbol{x} + \mathbf{b}$
@@ -203,11 +186,13 @@ $\boldsymbol{f}(\boldsymbol{x}) = g(\mathbf{z(x)}) = g(\boldsymbol{W}  \boldsymb
 - $\boldsymbol{W}, \mathbf{b}\,\,$    sont maintenant une matrice et un vecteur
 
 .credit[Slide credit: C. Ollion & O. Grisel]
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Réseau à une couche cachée
 
 .center[
-<img src="images/neural_network_hidden_1.svg" style="width: 700px;" />
+<img src="images/init/neural_network_hidden_1.svg" style="width: 700px;" />
 ]
 
 <br/>
@@ -222,12 +207,13 @@ $\boldsymbol{f}(\boldsymbol{x}) = g(\mathbf{z(x)}) = g(\boldsymbol{W}  \boldsymb
 also named multi-layer perceptron (MLP)
 feed forward, fully connected neural network
 logistic regression is the same without the hidden layer
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Réseau à une couche cachée
 
 .center[
-<img src="images/neural_network_hidden_2.svg" style="width: 700px;" />
+<img src="images/init/neural_network_hidden_2.svg" style="width: 700px;" />
 ]
 
 <br/>
@@ -238,11 +224,13 @@ logistic regression is the same without the hidden layer
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Réseau à une couche cachée
 
 .center[
-<img src="images/neural_network_hidden_3.svg" style="width: 700px;" />
+<img src="images/init/neural_network_hidden_3.svg" style="width: 700px;" />
 ]
 
 <br/>
@@ -252,12 +240,13 @@ logistic regression is the same without the hidden layer
 - <span style="color:#cccccc"> $\boldsymbol{f}(\boldsymbol{x}) = softmax(\mathbf{z}^o) = softmax(\boldsymbol{W}^o \mathbf{h}(\boldsymbol{x}) + \mathbf{b}^o)$</span>
 
 .credit[Slide credit: C. Ollion & O. Grisel]
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Réseau à une couche cachée
 
 .center[
-<img src="images/neural_network_hidden_4.svg" style="width: 700px;" />
+<img src="images/init/neural_network_hidden_4.svg" style="width: 700px;" />
 ]
 
 <br/>
@@ -267,12 +256,13 @@ logistic regression is the same without the hidden layer
 - $\boldsymbol{f}(\boldsymbol{x}) = softmax(\mathbf{z}^o) = softmax(\boldsymbol{W}^o \mathbf{h}(\boldsymbol{x}) + \mathbf{b}^o)$
 
 .credit[Slide credit: C. Ollion & O. Grisel]
-
 ---
+<!----------------------------------------------------------------------------------------------------------->
+
 ## Réseau à une couche cachée
 
 .center[
-<img src="images/neural_network_hidden_t.svg" style="width: 700px;" />
+<img src="images/init/neural_network_hidden_t.svg" style="width: 700px;" />
 ]
 
 ### Implémentation PyTorch
@@ -284,12 +274,13 @@ model = torch.nn.Sequential(
     torch.nn.Softmax(),
 )
 ```
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Différentes fonctions d'activation
 <br/>
 .center[
-<img src="images/activation_functions.svg" style="width: 780px;" />
+<img src="images/init/activation_functions.svg" style="width: 780px;" />
 ]
 <br/></br>
   - Bleu: Fonction d'activation
@@ -297,18 +288,9 @@ model = torch.nn.Sequential(
 
 .credit[Slide credit: C. Ollion & O. Grisel]
 
-
-
-
-
-
-
-
-
-
-
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Rappel - Notations
 
 - Un réseau de neurones correspond à une fonction $f$ qui a des paramètres ajustables $W$:
@@ -327,8 +309,9 @@ $$
 $$
 f(\boldsymbol{x}; W)_c = p(Y=c|X=\boldsymbol{x})
 $$
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## La Loss
 
 On définit une fonction de **loss** (perte) qui, pour un élément du dataset, évalue la qualité de la prédiction de notre réseau.
@@ -343,9 +326,10 @@ l(\boldsymbol{f}(\boldsymbol{x}, \theta), y) = - \log(\boldsymbol{f}(\boldsymbol
 $$
 
 .center[
-<img src="images/nll_explained.svg" style="width: 45%;margin-top: -20px;" />
+<img src="images/init/nll_explained.svg" style="width: 45%;margin-top: -20px;" />
 ]
 
+<!----------------------------------------------------------------------------------------------------------->
 ---
 ## La Loss
 
@@ -367,82 +351,81 @@ Entraîner le réseau revient à trouver les valeurs des paramètres $\mathbf{\t
 En pratique, pour chaque exemple du dataset S, on essaye de minimiser la fonction de loss associée.
 
 ???
-
 On aime bien prendre la fonction log car elle simplifie les calculs dans la théorie qui justifie proprement la loss.
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
+
 ## Rappel - Gradient d'une fonction
 
 .center[
-<img src="images/gradient.jpg" height="400px" />
+<img src="images/init/gradient.jpg" height="400px" />
 ]
+<!----------------------------------------------------------------------------------------------------------->
 
-
-
 ---
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_1.png" height="400px"/>]
+.center[<img src="images/init/gd_1.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_2.png" height="400px"/>]
+.center[<img src="images/init/gd_2.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_3.png" height="400px"/>]
+.center[<img src="images/init/gd_3.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_4.png" height="400px"/>]
+.center[<img src="images/init/gd_4.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_5.png" height="400px"/>]
+.center[<img src="images/init/gd_5.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_6.png" height="400px"/>]
+.center[<img src="images/init/gd_6.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_7.png" height="400px"/>]
+.center[<img src="images/init/gd_7.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_8.png" height="400px"/>]
+.center[<img src="images/init/gd_8.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_9.png" height="400px"/>]
+.center[<img src="images/init/gd_9.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_10.png" height="400px"/>]
+.center[<img src="images/init/gd_10.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_11.png" height="400px"/>]
+.center[<img src="images/init/gd_11.png" height="400px"/>]
 .center[
     ### Minimum Global 
 ]
@@ -450,84 +433,79 @@ count:false
 ---
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_12.png" height="400px"/>]
+.center[<img src="images/init/gd_12.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_13.png" height="400px"/>]
+.center[<img src="images/init/gd_13.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_14.png" height="400px"/>]
+.center[<img src="images/init/gd_14.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_15.png" height="400px"/>]
+.center[<img src="images/init/gd_15.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_16.png" height="400px"/>]
+.center[<img src="images/init/gd_16.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_17.png" height="400px"/>]
+.center[<img src="images/init/gd_17.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_18.png" height="400px"/>]
+.center[<img src="images/init/gd_18.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_19.png" height="400px"/>]
+.center[<img src="images/init/gd_19.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_20.png" height="400px"/>]
+.center[<img src="images/init/gd_20.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_21.png" height="400px"/>]
+.center[<img src="images/init/gd_21.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_22.png" height="400px"/>]
+.center[<img src="images/init/gd_22.png" height="400px"/>]
 .credit[Slide credit: F. Fleuret]
 ---
 count:false
 ## Rappel - Descente de Gradient
 <br>
-.center[<img src="images/gd_23.png" height="400px"/>]
+.center[<img src="images/init/gd_23.png" height="400px"/>]
 .center[
         ### Minimum Local
 ]
 
 .credit[Slide credit: F. Fleuret]
-
-
-
-
-
-
+<!----------------------------------------------------------------------------------------------------------->
 
 ---
 
@@ -551,62 +529,67 @@ $\Delta = \nabla_\theta L\(x_s, \theta)$
 
 - **S'arrêter lorsque la loss ne décroit plus sur l'ensemble de validation**
 
---
-
-.center[[Go to CNN](cnn.html)]
-
+<!----------------------------------------------------------------------------------------------------------->
 ---
 
 ## Backpropagation
 
 .center[
-<img src="images/flow_graph.svg" width="90%" />
+<img src="images/init/flow_graph.svg" width="90%" />
 ]
 
 .center[
-<img src="images/flow_graph_b.svg" width="90%" />
+<img src="images/init/flow_graph_b.svg" width="90%" />
 ]
 
+--
 
+.center[ [<span id="maFleche"></span> CNN](cnn.html)]
+<!----------------------------------------------------------------------------------------------------------->
 
+<!-----========================================================================================-------------->
 
+</textarea>
+<style TYPE="text/css">
+    code.has-jax {
+        font: inherit;
+        font-size: 100%;
+        background: inherit;
+        border: inherit;
+    }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+    });
+    MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+            }
+            });
+            </script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="static/remark-latest.min.js"></script>
+<script type="text/javascript">
+    var slideshow = remark.create({
+        highlightStyle: 'github',
+        highlightSpans: true,
+        highlightLines: true
+    });
 
+    var currentDate = new Date(); 
+    var lastUpdatedElement = document.getElementById("last-updated");
+    // Format de la date en chaîne de caractères (par exemple : "31 octobre 2023")
+    var options = { year: 'numeric', month: 'long', day: 'numeric' };
+    var formattedDate = currentDate.toLocaleDateString("fr-FR", options);
+    lastUpdatedElement.textContent += formattedDate;
 
-
-
-
-    </textarea>
-    <style TYPE="text/css">
-        code.has-jax {
-            font: inherit;
-            font-size: 100%;
-            background: inherit;
-            border: inherit;
-        }
-    </style>
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-      tex2jax: {
-      inlineMath: [['$','$'], ['\\(','\\)']],
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
-      }
-      });
-      MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
-		     all[i].SourceElement().parentNode.className += ' has-jax';
-		     }
-		     });
-		     </script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script src="static/remark-latest.min.js"></script>
-    <script type="text/javascript">
-        var slideshow = remark.create({
-            highlightStyle: 'github',
-            highlightSpans: true,
-            highlightLines: true
-        });
-    </script>
+    var maFleche = "&#x27A5;";
+    document.getElementById("maFleche").innerHTML = maFleche;
+</script>
 </body>
-
 </html>
