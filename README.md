@@ -1,10 +1,10 @@
 # Introduction au Machine Learning et Deep Learning
-En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
+En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)(https://theevann.github.io/ml-intro/)
 
 ## Slides
 
 1. [Introduction au Deep Learning pour la Télédétection](https://courdier.github.io/ia/slides/intro.html)
-2. [Aspects theoriques du Machine learning et Deep Laerning](https://theevann.github.io/ml-intro/slides/nn.html)
+2. [Aspects theoriques du Machine learning et Deep Laerning](https://courdier.github.io/ia/slides/nn.html)
 3. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
 
 ## TP
