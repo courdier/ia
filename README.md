@@ -1,5 +1,5 @@
 # Introduction au Machine Learning et Deep Learning
-En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)(https://theevann.github.io/ml-intro/)
+En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
 ## Slides
 
