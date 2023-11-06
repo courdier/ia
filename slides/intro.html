@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Deep Learning Lectures</title>
+		<title>Deep Learning et Geomatique</title>
 		<meta charset="utf-8">
 		<style>
-			.left-column {
-			width: 50%;
-			float: left;
-			}
-			.right-column {
-			width: 50%;
-			float: right;
-			}
+			.left-column { width: 50%; float: left; }
+			.right-column { width: 50%; float: right; }
 			.grey { color: #bbbbbb; }
-
+			.medium { font-size: 80%; }
+			.mmmedium { font-size: 65%; }
 			.small { font-size: 50% }
-
 			.big { font-size: 150% }
 		</style>
 		<link rel="stylesheet" type="text/css" href="static/slides.css">
@@ -24,166 +18,126 @@
     	<textarea id="source">
 class: center, middle
 
-# Introduction au Deep Learning
-
-
-### Evann Courdier
-
-18 juin 2019
-
-.affiliations[
-  ![UR](images/logoUR.png)
-  ![EPFL](images/logoEPFL.png)
-]
-
-.footer[Avec des slides de Charles Ollion et Olivier Grisel]
-
+<!----------------------------------------------------------------------------------------------------------->
+# Introduction au Deep Learning pour la Geomatique
+### Rémy Courdier
+novembre 2023
+.affiliations[ ![UR](images/logoUR.png)]
+.footer[Avec des slides de Evann Courdier, Charles Ollion et Olivier Grisel <BR>(EPFL, INRIA) ]
 ---
 
-# Plan de la journée
-
+<!----------------------------------------------------------------------------------------------------------->
+# Plan du cours
 ### En théorie...
-
-- Introduction - Machine Learning et Deep Learning
-- Réseaux de neurones - Description et entraînements
-- Vision - Introduction aux réseaux de neurones convolutionnels
-- Le deep learning: limite et éthique
-
+- Présentation Générale Machine Learning et Deep Learning 
+- Aspects theorique du Machine learning et Deep Laerning (modèles et architectures,…)
+- Présentation Deep Learning for GIS
 ???
-
 Pourquoi maintenant DL et ou c'est utilisé
-
 --
 count:false
-
-
 ### En pratique...
-
-- Implementation d'un petit réseau de neurone
-- Utilisation d'un réseau convolutionnel pré-entrainé
-
-
+- TP : Classification d’images (satellites) : FastAI + PyTorch
+- TP : Object detection / counting : PyTorch?
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
 # Machine Learning
+.center[Le Machine Learning est un domaine de l'intelligence artificielle qui consiste à développer des algorithmes capables d'apprendre à partir de données
+dans le but de résoudre une grande variété de problèmes et prendre des décisions.]
 
-On contruit des algorithmes **génériques** qui peuvent nous dire des choses interéssantes sur nos données.
-
-On n'a pas besoin d'écrire du code particulier pour différents problèmes.
-
-Au lieu d'écrire du code, on mets des données dans l'algorithme et c'est lui qui construit la logique en se basant sur les données.
+### Principe :
+- apprentissage à partir des données plutôt que programmer explicitement un code pour résoudre un problème.
+- contruction d'algorithmes **génériques** qui peuvent identifier des choses interéssantes sur nos données.
+- pas d'écriture de codes particuliers pour différents problèmes.
+- construction de l'algorythme qui génère la logique en se basant sur les données.
 
 ???
 Generiques = code de l'algo n'est pas propre a un pbm en particulier
-
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
 # Machine Learning traditionnel
-
---
-count:false
-
-### Supervisé:
+### Supervisé :
 - Classification
 - Regression
-
-
-### Non supervisé
+### Non supervisé :
 - Clustering
 - Modèles génératifs
-
 ???
 En supervisé, on a un objectif particulier à prédire, par exemple dans la cas de la classif, etant donné une image en entrée, dire si c'est ...
 En non supervisé, il n'y a pas d'objectif. On veut que l'algorithme trouve des tendances, des motifs dans les données.
-
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
 # ML traditionnel - Classification
-
-.center[
-<img src="images/catsandogs.jpg" style="width: 100%;" />
-]
-
+.center[<img src="images/catsandogs.jpg" style="width: 100%;" />]
 --
 count:false
-
-.center[
-<img src="images/cat.jpg" style="width: 20%;" />
-]
-.center[
-.big[?]
-]
-
+.center[<img src="images/cat.jpg" style="width: 20%;" />]
+.center[.big[?]]
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
+## ML - Classification et Télédétection
+.mmmedium[Algorithme de "classification au plus proche voisin" largement répandu dans le monde de la télédétection.
+	Technique qui repose sur une digitalisation manuelle de régions d’entraînement.<BR>
+	Pour chaque zone d’entraînement appelées **Region Of Interest (ROI)**, les valeurs des pixels sous-jacents sont relevées, 
+	les moyennes sont calculées, et chaque classe est ainsi caractérisée par une signature radiométrique. 
+	On associe alors à chaque pixel d'une l’image, la classe qui lui est le plus proche d’un point de vue radiométrique.]
+.center[<img src="images/fig_classif_dist_min_bandes - Grande.png" style="width: 90%;" />]
+.credits[source : Paul Passy (2017) - https://www.ppassy.fr/teledetection/2017/03/20/la-classification-au-plus-proche-voisin/]
 
+---
+<!----------------------------------------------------------------------------------------------------------->
 # ML traditionnel - Regression
-
 .center[
 <img src="images/regression.png" style="width: 100%;" />
 ]
-
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
+## ML - Régression et Télédétection
+.mmmedium[Algorithme ...]
+.center[
+<img src="images/fig_classif_dist_min_bandes - Grande.png" style="width: 90%;" />
+]
+.credits[source : Paul Passy (2017) - https://www.ppassy.fr/teledetection/2017/03/20/la-classification-au-plus-proche-voisin/]
+---
+
+<!----------------------------------------------------------------------------------------------------------->
 # ML traditionnel - Clustering
-
-.center[
-<img src="images/clustering.png" style="width: 100%;"/>
-]
-
+.center[<img src="images/clustering.png" style="width: 100%;"/>]
 ---
-
+<!----------------------------------------------------------------------------------------------------------->
 # ML traditionnel - Modèles génératifs
-
+.center[<img src="images/imInput.jpg" style="width: 25%;" /> <span class="big" style="position:relative;bottom:80px;margin: 0  50px;">+</span> <img src="images/imStyle.jpg" style="width: 25%;" />]
 --
 count:false
-
-.center[
-<img src="images/imInput.jpg" style="width: 25%;" /> <span class="big" style="position:relative;bottom:80px;margin: 0  50px;">+</span> <img src="images/imStyle.jpg" style="width: 25%;" />
-]
-
---
-count:false
-
-.center[
-<img src="images/imOutput.jpg" style="width: 30%;"/>
-]
-
+.center[<img src="images/imOutput.jpg" style="width: 30%;"/>]
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
 # ML traditionnel - Modèles génératifs
-
-.center[
-<img src="images/imOutput.jpg" style="width: 60%;"/>
-]
-
+.center[<img src="images/imOutput.jpg" style="width: 60%;"/>]
 ---
 
-exclude:true
+<!----------------------------------------------------------------------------------------------------------->
+
 # Machine Learning traditionnel
-
-.center[
-<img src="images/image_ml.png" style="width: 670px;" />
-]
-
+.center[<img src="images/image_ml.png" style="width: 670px;" />]
 --
-exclude:true
-
-.center[
-<img src="images/image_ml_2.png" style="width: 670px;" />
-]
-
+.center[<img src="images/image_ml_2.png" style="width: 670px;" />]
 ---
 
 exclude:true
+
+<!----------------------------------------------------------------------------------------------------------->
 # Deep Learning
-
-.center[
-<img src="images/image_dl.png" style="width: 700px;" />
-]
-
+## ici une diapo exclue de la présentation
 ---
 
+<!----------------------------------------------------------------------------------------------------------->
 # Qu'est ce que le deep learning
 
 - Réseaux de Neurones, avec un grand nombre de couches/modules.
@@ -197,7 +151,6 @@ Sous le mot deep learning, on regroupe un ensemble de modèles qui ont des propr
 count:false
 
 - Construit une représentation des données hierarchique et abstraite.
-
 
 ???
 
@@ -222,6 +175,8 @@ image, son, texte
 count:false
 
 -  Programmation fonctionnelle differentiable
+
+.center[<img src="images/image_dl.png" style="width: 50%;" />]
 
 ???
 
