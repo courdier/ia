@@ -1,0 +1,9 @@
+model = nn.Sequential(
+    nn.Linear(1, 10),
+    nn.ReLU(),
+    nn.Linear(10, 15),
+    nn.ReLU(),
+    nn.Linear(15, 2),
+)
+
+print(model)

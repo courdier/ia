@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Deep Learning Lectures</title>
+    <meta charset="utf-8">
+    <style>
+        .left-column {
+            width: 50%;
+            float: left;
+        }
+
+        .right-column {
+            width: 50%;
+            float: right;
+        }
+
+        .grey {
+            color: #bbbbbb;
+        }
+
+        .small {
+            font-size: 50%
+        }
+
+        .big {
+            font-size: 150%
+        }
+
+
+        .credit {
+            position: absolute;
+            float: left;
+            bottom: 0em;
+            margin: 0em 0em;
+            font-size: 0.4em;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/slides.css">
+</head>
+
+<body>
+    <textarea id="source">
+class: center, middle
+
+# Introduction au Deep Learning
+
+## Réseaux de Neurones Convolutionnels
+
+### Evann Courdier
+
+18 juin 2019
+
+.affiliations[
+  ![UR](images/logoUR.png)
+  ![EPFL](images/logoEPFL.png)
+]
+
+---
+
+# Plan de la journée
+
+### En théorie...
+
+- .grey[Introduction: Deep Learning - Pourquoi et où ?]
+- .grey[Réseau de neurones: Description et entraînements]
+- Vision: Introduction aux réseaux neuronnaux convolutionnels
+- .grey[Le deep learning : limites et éthique]    
+
+### .grey[En pratique...]
+
+- .grey[Implementation de word2vec en PyTorch]
+- .grey[Utilisation d'un CNN pré-entrainé]
+
+---
+
+## Pourquoi des CNN ?
+
+### Nombre de paramètres
+
+Si on utilisait une image en entrée d'un réseau classique, il faudrait apprendre un nombre colossal de paramètres !
+
+Par exemple, une couche d'un réseau qui prend en entrée une image RGB $256 \times 256$ image, et produit une image de même taille nécessite:
+
+$$ (256 \times 256 \times 3)^2 \simeq 4e+10 $$
+
+paramètres.
+
+---
+
+## Pourquoi des CNN ?
+
+### Cohérence Spatiale
+
+Les images possèdent une cohérence spatiale, et donc les systèmes qui utilisent des images doivent être 'invariant par translation'.
+
+Un réseau convolutionnel l'est car il applique la même transformation linéaire à chaque endroit de l'image.
+
+---
+
+
+
+
+
+
+
+
+---
+
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_1.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_2.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_3.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_4.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_5.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_6.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_7.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_8.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 1d
+
+.center[
+<img src="images/conv1d_9.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+
+---
+
+## Convolution d'une image
+
+- Image de dimensions $5 \times 5$
+- Noyau de dimensions $3 \times 3$
+
+.center[
+    <img src="images/numerical_no_padding_no_strides.gif" style="width: 80%;" />
+]
+
+---
+
+## Convolution d'une image (Noir & Blanc)
+
+.center[
+    <img src="images/conv2d_BW.gif" style="width: 100%;" />
+]
+
+---
+## Convolution d'une image (Couleur)
+
+
+.center[
+    <img src="images/conv2d_rgb.gif" style="width: 100%;" />
+]
+
+
+
+
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_1.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_2.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_3.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_4.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_5.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_6.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_7.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_8.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_9.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_10.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_11.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_12.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Convolution 2d
+
+.center[
+<img src="images/conv2d_13.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+
+## Noyau de Convolution
+
+- Ils sont appris (ils font partie des paramètres)
+
+- Exemple de filtres "3D" (3 canaux RGB) appris:
+
+.center[
+    <img src="images/conv_2d_bank.png" style="width: 600px;" />
+<br/> ]
+
+
+---
+
+## Sous Echantillonnage (Pooling / Subsampling)
+
+- Réduction de dimension spatiale
+
+- Plusieurs type: average pooling, max pooling, ...
+
+.center[
+    <img src="images/pooling_1.png" style="width: 600px;" />
+]
+
+---
+
+## Sous Echantillonnage (Pooling / Subsampling)
+
+- Réduction de dimension spatiale
+
+- Plusieurs type: average pooling, max pooling, ...
+
+.center[
+    <img src="images/pooling.png" style="width: 600px;" />
+]
+
+???
+
+Conserve l'invariance par translation
+
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_1.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_2.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_3.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_4.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_5.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_6.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 1d
+
+.center[
+<img src="images/maxpool1d_7.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_1.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_2.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_3.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_4.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_5.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_6.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_7.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_8.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_9.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_10.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_11.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_12.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_13.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_14.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Max-Pooling 2d
+
+.center[
+<img src="images/maxpool2d_15.png" style="width: 600px;" /><br/>
+]
+
+.credit[Slide credit: F. Fleuret]
+
+---
+## Couche convolutionnelle
+
+Une couche de réseau convolutionnel est composée d'une convolution, d'une activation et d'un pooling.
+
+.center[
+<img src="images/conv_layers.png" style="width: 600px;" />
+<br/> ]
+
+---
+
+## Réseau convolutionnel
+
+- Superposition de plusieurs couches convolutionnelles qui extraient les features
+- Les couches plus profondes calculent des features plus globales, plus invariantes
+- La dernière couche est une couche de classification (non convolutionnelle)
+
+.center[
+<img src="images/cnn.png" style="width: 90%;" /><br/>
+]
+
+
+---
+
+## D'autres architectures: GoogleNet
+
+<br />
+<br />
+.center[
+<img src="images/googlenet.png" style="width: 100%;" /><br/>
+]
+
+---
+
+## D'autres architectures: Resnet
+
+.center[
+<img src="images/resnet.png" style="height: 550px;" /><br/>
+]
+
+---
+
+## Comparaison des modèles
+
+.center[
+<img src="images/comparison_deep.png" style="width: 110%;" /><br/>
+]
+
+---
+## Concours de classification d'images
+
+.center[
+###"Deeper is better"
+
+<br />
+
+<img src="images/deeper.png" style="width: 500px;" /><br/>
+]
+
+--
+
+.center[[Go to Ethique](ethique.html)]
+
+    </textarea>
+    <style TYPE="text/css">
+        code.has-jax {
+            font: inherit;
+            font-size: 100%;
+            background: inherit;
+            border: inherit;
+        }
+    </style>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+      }
+      });
+      MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+		     all[i].SourceElement().parentNode.className += ' has-jax';
+		     }
+		     });
+		     </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="static/remark-latest.min.js"></script>
+    <script type="text/javascript">
+        var slideshow = remark.create({
+            highlightStyle: 'github',
+            highlightSpans: true,
+            highlightLines: true
+        });
+    </script>
+</body>
+
+</html>
