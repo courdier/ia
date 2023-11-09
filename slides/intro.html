@@ -11,6 +11,7 @@
 			.mmmedium { font-size: 65%; }
 			.small { font-size: 50% }
 			.big { font-size: 150% }
+			.note { color:#949191; font-size: 50%; }
 		</style>
 		<link rel="stylesheet" type="text/css" href="static/slides.css">
 	</head>
@@ -34,14 +35,15 @@ class: center, middle
 # Plan du cours
 
 ### En théorie...
-- Présentation Générale Machine Learning et Deep Learning 
+- Présentation Générale Machine Learning et Deep Learning
 - .grey[Aspects theoriques du Machine learning et Deep Laerning<br> (modèles et architectures,…)]
-- .grey[Présentation Deep Learning for GIS]
+- .grey[Introduction aux réseaux neuronaux convolutionnels]
 
 --
 count:false
-.grey[
+
 ### En pratique...
+.grey[
 - TP : Classification d’images satellitaires
 - TP : Object detection / counting
 ]
@@ -50,17 +52,31 @@ count:false
 
 # Machine Learning (ML)
 
-.center[Le Machine Learning est un domaine de l'intelligence artificielle qui consiste à développer des algorithmes capables d'apprendre à partir de données
+.center[Le ML.note[(1)] est un domaine de l'intelligence artificielle qui consiste à développer des algorithmes capables d'apprendre à partir de données
 dans le but de résoudre une grande variété de problèmes et prendre des décisions.]
 
 ### Principe :
 - apprentissage à partir des données plutôt que programmer explicitement un code pour résoudre un problème.
-- contruction d'algorithmes **génériques** qui peuvent identifier des choses interéssantes sur nos données.
-- pas d'écriture de codes particuliers pour différents problèmes.
-- construction de l'algorythme qui génère la logique en se basant sur les données.
+- contruction d'algorithmes **génériques**.note[(2)]  qui peuvent identifier des informations interéssantes sur nos données .note[(3)].
+- pas d'écriture de codes particuliers pour différents problèmes.note[(4).]
+- construction de l'algorithme qui génère la logique en se basant sur les données.note[(5).]
 
-???
-	Generiques = code de l'algo n'est pas propre a un pbm en particulier
+<button onclick="alert(
+	'(1) Le Machine Learning permet aux ordinateurs d\'apprendre à partir des données plutôt que d\'être explicitement programmés, ce qui les rend capables de résoudre une grande variété de problèmes et de prendre des décisions informées en se basant sur les données disponibles. C\'est une approche puissante pour l\'automatisation de tâches complexes et l\'analyse de données à grande échelle.')"
+ >1</button>
+<button onclick="alert(
+	'(2) Cela signifie que les algorithmes de Machine Learning sont conçus pour être applicables à un large éventail de problèmes et de domaines. Au lieu de créer un algorithme spécifique pour chaque problème, on crée des algorithmes génériques qui peuvent être adaptés à différentes tâches.')"
+>2</button>
+<button onclick="alert(
+	'(3) Les algorithmes de Machine Learning sont utilisés pour extraire des informations, des tendances ou des modèles à partir des données. Ils peuvent révéler des relations cachées ou des insights que l\'analyse manuelle des données ne pourrait pas découvrir.')"
+>3</button>
+<button onclick="alert(
+	'(4) Dans le Machine Learning, les données jouent un rôle central. Au lieu de programmer explicitement des règles, des décisions ou des prédictions, on fournit des données à l\'algorithme, et ce dernier apprend à partir de ces données pour effectuer la tâche souhaitée.')"
+>4</button>
+<button onclick="alert(
+	'(5) L\'algorithme de Machine Learning apprend à partir des données en identifiant des schémas et des règles à partir de ces données. Il construit sa propre logique interne en se basant sur les informations contenues dans les données.')"
+>5</button>
+
 <!----------------------------------------------------------------------------------------------------------->
 ---
 
