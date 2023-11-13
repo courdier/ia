@@ -29,7 +29,7 @@ Vous pouvez ensuite lancer un notebook avec la commande:
 ```sh
 jupyter notebook
 ```
-## Liens
+## Liens web 
 
-- Techniques for deep learning on satellite and aerial imagery : https://github.com/satellite-image-deep-learning/techniques
+- [Techniques for deep learning on satellite and aerial imagery](https://github.com/satellite-image-deep-learning/techniques)
 
