@@ -163,15 +163,17 @@ layout:false
 
 # ML traditionnel - Classification
 .center[<img src="images/init/catsandogs.jpg" style="width: 100%;" />]
---
-count:false
-.center[<img src="images/init/cat.jpg" style="width: 20%;" />]
-.center[.big[?]]
 
 ???
 	Le Machine Learning supervisé en classification consiste à attribuer une étiquette ou une classe à des exemples en fonction de caractéristiques d'entrée. 
 
 	Par exemple, catégoriser des animaux comme « chat » ou « chien » en fonction de leur contenu ou qu’un terrain est de la « foret » ou de la « culture ».
+--
+count:false
+.center[<img src="images/init/cat.jpg" style="width: 20%;" />]
+.center[.big[?]]
+
+
 <!----------------------------------------------------------------------------------------------------------->
 
 ---
@@ -192,6 +194,11 @@ count:false
 .center[
 <img src="images/init/regression.png" style="width: 100%;" />
 ]
+
+???
+	La régression supervisée implique la prédiction de valeurs continues à partir de données d'entrée. Par exemple, prédire le prix d'une terrain en fonction de ses caractéristiques, 
+	ou estimer la demande future d'un produit en fonction de facteurs tels que le prix et les risques naturels.
+
 <!----------------------------------------------------------------------------------------------------------->
 ---
 
@@ -211,6 +218,11 @@ exclude:true
 
 # ML traditionnel - Clustering
 .center[<img src="images/init/clustering.png" style="width: 100%;"/>]
+
+???
+	Clustering : Le clustering dans le Machine Learning non supervisé consiste à regrouper des exemples de données en fonction de similarités. 
+	Les exemples similaires sont placés dans le même groupe (cluster). Par exemple, regrouper des clients en segments de marché en fonction de leurs comportements d'achat similaires ou comme ici regrouper des images de chiffres en fonction de leur forme.
+
 <!----------------------------------------------------------------------------------------------------------->
 ---
 
@@ -224,6 +236,12 @@ count:false
 count:false
 ## ML traditionnel - Modèles génératifs
 .center[<img src="images/init/imOutput.jpg" style="width: 60%;"/>]
+
+???
+	Les modèles génératifs sont utilisés pour générer de nouvelles données qui ressemblent à celles du jeu de données d'entraînement. 
+	Ils sont utiles pour créer de nouvelles images, du texte, ou d'autres types de données. 
+	Par exemple, générer des visages humains réalistes à partir d'un ensemble d'images existantes. Comme ici avec le portrait de Vincent Van Gogh.
+
 <!----------------------------------------------------------------------------------------------------------->
 ---
 
@@ -305,6 +323,20 @@ layout:true
 <img src="images/init/gpu_tpu.png" style="width: 450px;" /><br/><br/>
 <small>_GPU et TPU_</small>
 ]
+
+???
+	GPU et TPU 
+	Un GPU (Unité de Traitement Graphique) et un TPU (Unité de Traitement Tensoriel) sont des types de processeurs spécialisés utilisés dans le domaine de l'informatique, en particulier pour des tâches liées au traitement de données massives et à l'accélération de calculs. Voici une explication de chacun d'entre eux :
+
+	GPU (Unité de Traitement Graphique) :
+	* Fonction principale : Les GPU ont été initialement conçus pour le rendu graphique, c'est-à-dire pour afficher des images et des graphiques complexes sur un écran. Ils sont utilisés dans les cartes graphiques des ordinateurs personnels et des stations de travail pour des tâches telles que les jeux vidéo, la modélisation 3D, la conception graphique et le rendu vidéo.
+	* Calculs parallèles : Les GPU sont conçus pour effectuer de nombreux calculs en parallèle, ce qui les rend particulièrement adaptés pour des tâches de calcul intensif. Cette caractéristique a conduit à leur utilisation dans des domaines autres que la visualisation, comme l'apprentissage profond et d'autres tâches de traitement de données massives.
+	* Utilisation dans l'apprentissage profond : Les GPU sont devenus essentiels dans le domaine de l'apprentissage profond, car ils peuvent accélérer de manière significative l'entraînement de réseaux de neurones profonds en effectuant des milliards de calculs en parallèle. Des bibliothèques logicielles telles que CUDA et cuDNN ont été développées pour tirer parti de la puissance de calcul des GPU.
+
+	TPU (Unité de Traitement Tensoriel) :
+	* Fonction principale : Les TPU sont des processeurs spécialement conçus pour accélérer les calculs liés au traitement de données tensorielles, qui sont couramment utilisées dans l'apprentissage profond. Ils sont conçus par Google et sont principalement utilisés dans les centres de données pour des tâches liées à l'intelligence artificielle et à l'apprentissage machine.
+	* Optimisation pour l'apprentissage profond : Les TPU sont optimisés pour les calculs liés à l'apprentissage profond, en particulier les opérations de multiplication matricielle qui sont fréquentes dans les réseaux de neurones. Ils sont conçus pour des performances spécifiques aux tâches d'apprentissage machine.
+	* Utilisation dans les services cloud : Google propose des TPU en tant que service cloud via Google Cloud, ce qui permet aux développeurs d'accéder à ces unités de traitement de manière à accélérer leurs tâches d'apprentissage profond sans avoir besoin de matériel spécialisé.
 
 ---
 <!----------------------------------------------------->
