@@ -3,7 +3,7 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
 ## Slides
 
-1. [Introduction au Deep Learning pour la Télédétection](https://courdier.github.io/ia/slides/intro.html)
+1. [Introduction au Deep Learning pour la Télédétection](https://courdier.github.io/ia/slides/intro.html#p1)
 2. [Aspects theoriques du Machine learning et Deep Laerning](https://courdier.github.io/ia/slides/nn.html)
 3. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
 
