@@ -112,6 +112,26 @@ layout:true
 .right-column[
 .right[<img src="images/rc-intro/fig_apprentssage_supervise.png" style="width: 110%;" />]
 ]
+???
+ML traditionnel - Classification 
+
+Ces deux grandes classes de Machine Learning ont des applications variées dans de nombreux domaines
+
+Dans le domaine de l'analyse d'images, les performances des réseaux de neurones sont spectaculaires, tant pour identifier le contenu d'une photographie que pour le localiser des objets d'intérêt. Néanmoins, l'entraînement 
+d'un réseau de neurones requiert la présence d'une vérité terrain. Concrètement, pour chaque image d'entraînement il nous faut un exemple de résultat attendu.
+Le réseau de neurones analyse les données qui lui sont fournies et propose une classification de ces dernières. La vérité terrain permet de calculer l'erreur commise 
+par le réseau de neurones, qui peut alors se mettre à jour pour produire une classification davantage pertinente. Le processus est répété jusqu'à ce que l'apprentissage ne s'accompagne plus d'une diminution de l'erreur commise.
+
+Ainsi, si nous souhaitons entraîner un réseau de neurones à caractériser des types de paysages en fonction de photographies aériennes il est indispensable de créer 
+un jeu de données où les images sont associées à un ou plusieurs types de paysages. La création de cette vérité terrain nécessite une expertise, pour concevoir une taxonomie 
+de paysage pertinente comme pour associer chaque photographie aérienne à une ou plusieurs catégories de cette taxonomie.
+
+Les méthodes d'apprentissage non-supervisé, se libèrent de la contrainte de la vérité terrain. Pour ces méthodes la phase d'apprentissage consiste à analyser 
+les propriétés des données les unes par rapport aux autres. Il peut s'agir de la distance entre les données, d'un calcul de densité ou de rechercher une 
+les paramètres d'une loi de probabilité spécifique représentant au mieux les données. Les données d'apprentissage fournissent ainsi une base pour mieux comprendre les futures données.
+
+Dans cette catégorie de méthode, les algorithmes de clustering (en français «regroupement») fournissent des solutions pour organiser les données en ensembles homogènes. 
+Les groupes sont constitués durant les apprentissage, en associant les données similaires. Une fois l'apprentissage terminé, de nouvelles données peuvent être associées aux groupes ainsi créés.
 
 ---
 
@@ -134,6 +154,7 @@ count:false
 
 ???
 	En supervisé, on a un objectif particulier à prédire, par exemple dans la cas de la classif, etant donné une image en entrée, dire si c'est ...
+	
 	En non supervisé, il n'y a pas d'objectif. On veut que l'algorithme trouve des tendances, des motifs dans les données.
 <!----------------------------------------------------------------------------------------------------------->
 ---
@@ -146,6 +167,11 @@ layout:false
 count:false
 .center[<img src="images/init/cat.jpg" style="width: 20%;" />]
 .center[.big[?]]
+
+???
+Classification : Le Machine Learning supervisé en classification consiste à attribuer une étiquette ou une classe à des exemples en fonction de caractéristiques d'entrée. 
+Par exemple, catégoriser des animaux comme « chat » ou « chien » en fonction de leur contenu ou qu’un terrain est de la « foret » ou de la « culture ».
+
 <!----------------------------------------------------------------------------------------------------------->
 
 ---
