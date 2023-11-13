@@ -12,12 +12,8 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* ou *Binder* comme platefo
 
 ### Colab
 
-1. [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/Building-a-basic-network.ipynb)
-2. [Object detection / counting](https://colab.research.google.com/github/courdier/ia/blob/master/TP/Using-a-pretrained-CNN.ipynb)
-
-### Binder
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/theevann/ml-intro/master)
+1. [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
+2. Object detection / counting (Disponible ulterieurement)
 
 ### Machines personnelles
 
