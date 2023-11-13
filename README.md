@@ -8,7 +8,7 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 3. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
 
 ## TP
-Pour faire ces TP, vous pouvez utiliser *Google Colab* ou *Binder* comme plateforme de travail.  
+Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de travail.  
 
 ### Colab
 
