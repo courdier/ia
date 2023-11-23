@@ -7,7 +7,7 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 2. [Aspects theoriques du Machine learning et Deep Laerning](https://courdier.github.io/ia/slides/nn.html)
 3. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
 
-## TP
+## TP 
 Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de travail.  
 
 1. TP1 : 
