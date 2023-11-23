@@ -33,7 +33,7 @@ jupyter notebook
 ```
 ## Tests de connaissances 
 
--  [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/exam1.ipynb)
+-  [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb)
 
 ## Liens web 
 
