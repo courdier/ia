@@ -17,6 +17,15 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 2. TP2 : 
 * Sujet : Object detection / counting (Disponible ulterieurement)
 
+## Tests de connaissances 
+
+-  [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb)
+
+## Liens web 
+
+- [Techniques for deep learning on satellite and aerial imagery](https://github.com/satellite-image-deep-learning/techniques)
+- [Crop type classification with satellite imagery -- Learn about our approach to crop type classification ](https://medium.com/geekculture/crop-type-classification-with-satellite-imagery-dfc200f82927)
+
 ### Machines personnelles
 
 Vous pourrez par la suite aussi les faire marcher sur vos machines personnelles.
@@ -31,12 +40,3 @@ Vous pouvez ensuite lancer un notebook avec la commande:
 ```sh
 jupyter notebook
 ```
-## Tests de connaissances 
-
--  [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb)
-
-## Liens web 
-
-- [Techniques for deep learning on satellite and aerial imagery](https://github.com/satellite-image-deep-learning/techniques)
-- [Crop type classification with satellite imagery -- Learn about our approach to crop type classification ](https://medium.com/geekculture/crop-type-classification-with-satellite-imagery-dfc200f82927)
-
