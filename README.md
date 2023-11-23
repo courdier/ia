@@ -29,6 +29,10 @@ Vous pouvez ensuite lancer un notebook avec la commande:
 ```sh
 jupyter notebook
 ```
+## Tests de connaissances 
+
+- [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/exam1.ipynb)
+
 ## Liens web 
 
 - [Techniques for deep learning on satellite and aerial imagery](https://github.com/satellite-image-deep-learning/techniques)
