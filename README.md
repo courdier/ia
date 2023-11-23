@@ -10,9 +10,10 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 ## TP
 Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de travail.  
 
-### Colab
-
 1. [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
+
+Correction [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
+
 2. Object detection / counting (Disponible ulterieurement)
 
 ### Machines personnelles
