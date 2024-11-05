@@ -8,4 +8,3 @@ def label_func(fname):
         return 'Nature'
     else:
         return 'Human'
-    
