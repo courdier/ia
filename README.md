@@ -2,7 +2,7 @@
 En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
 ## Slides
-1. [Inroduction à l'IA] (http://lim.univ-reunion.fr/staff/courdier/old/cours/ia_sma/pdfs/1_SMA_positionnement_vs_IA.pdf)
+1. [Inroduction à l'IA](http://lim.univ-reunion.fr/staff/courdier/old/cours/ia_sma/pdfs/1_SMA_positionnement_vs_IA.pdf)
 2. [Introduction au Deep Learning pour la Télédétection](https://courdier.github.io/ia/slides/intro.html#p1)
 3. [Aspects theoriques du Machine learning et Deep Laerning](https://courdier.github.io/ia/slides/nn.html)
 4. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
@@ -19,10 +19,8 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 
 ## Tests de connaissances
 
--  A venir...
-<!--
--  [Cours & TP Classification](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb)
--->
+-  [Cours & TP Classification] A venir 
+<!-- (https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb) -->
 
 ## Liens web 
 
