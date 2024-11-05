@@ -126,13 +126,6 @@ layout:true
 	un jeu de données où les images sont associées à un ou plusieurs types de paysages. La création de cette vérité terrain nécessite une expertise, pour concevoir une taxonomie 
 	de paysage pertinente comme pour associer chaque photographie aérienne à une ou plusieurs catégories de cette taxonomie.
 
-	Les méthodes d'apprentissage non-supervisé, se libèrent de la contrainte de la vérité terrain. Pour ces méthodes la phase d'apprentissage consiste à analyser 
-	les propriétés des données les unes par rapport aux autres. Il peut s'agir de la distance entre les données, d'un calcul de densité ou de rechercher une 
-	les paramètres d'une loi de probabilité spécifique représentant au mieux les données. Les données d'apprentissage fournissent ainsi une base pour mieux comprendre les futures données.
-
-	Dans cette catégorie de méthode, les algorithmes de clustering (en français «regroupement») fournissent des solutions pour organiser les données en ensembles homogènes. 
-	Les groupes sont constitués durant les apprentissage, en associant les données similaires. Une fois l'apprentissage terminé, de nouvelles données peuvent être associées aux groupes ainsi créés.
-
 ---
 
 count:false
@@ -153,10 +146,17 @@ count:false
 ]
 
 ???
+	Les méthodes d'apprentissage non-supervisé, se libèrent de la contrainte de la vérité terrain. Pour ces méthodes la phase d'apprentissage consiste à analyser 
+	les propriétés des données les unes par rapport aux autres. Il peut s'agir de la distance entre les données, d'un calcul de densité ou de rechercher une 
+	les paramètres d'une loi de probabilité spécifique représentant au mieux les données. Les données d'apprentissage fournissent ainsi une base pour mieux comprendre les futures données.
+
+	Dans cette catégorie de méthode, les algorithmes de clustering (en français «regroupement») fournissent des solutions pour organiser les données en ensembles homogènes. 
+	Les groupes sont constitués durant les apprentissage, en associant les données similaires. Une fois l'apprentissage terminé, de nouvelles données peuvent être associées aux groupes ainsi créés.
+
 	En supervisé, on a un objectif particulier à prédire, par exemple dans la cas de la classif, etant donné une image en entrée, dire si c'est ...
 
 	En non supervisé, il n'y a pas d'objectif. On veut que l'algorithme trouve des tendances, des motifs dans les données.
-<!----------------------------------------------------------------------------------------------------------->
+	
 ---
 
 layout:false
@@ -438,6 +438,21 @@ layout:false
 .center[
 <img src="images/init/nlp.png" style="width: 600px;" />
 ]
+???
+En intelligence artificielle, NLP signifie Natural Language Processing, ou traitement du langage naturel en français. 
+Il s’agit d’un domaine de l’IA qui se concentre sur l’interaction entre les ordinateurs et le langage humain. 
+L’objectif du NLP est de permettre aux machines de comprendre, interpréter et générer le langage naturel de manière significative.
+
+Les principales applications du NLP incluent :
+
+	* Analyse de texte : compréhension de sentiments, extraction de mots-clés, etc.
+	* Traduction automatique : traduire des textes d’une langue à une autre (ex. : Google Traduction).
+	* Chatbots et assistants virtuels : comme ChatGPT, Siri, Alexa, qui répondent aux questions en langage naturel.
+	* Reconnaissance vocale : transformation de la parole en texte (ex. : transcription).
+	* Résumé automatique : générer un résumé à partir de textes longs.
+
+Les techniques de NLP incluent le traitement statistique, l’apprentissage automatique et les réseaux de neurones profonds, 
+comme les modèles de type Transformer (ex. : BERT, GPT).
 
 ---
 # DL Today: NLP
