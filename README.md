@@ -1,3 +1,4 @@
+<!-- ia_tp1 (pwd) -->
 # Introduction au Machine Learning et Deep Learning
 En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
@@ -12,7 +13,25 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 
 1. TP1 : 
 * Sujet : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
-* Correction : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb)
+<!-- * Correction : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb) -->
+<div id="correction" style="display:none;">
+  <p>Correction : </p>
+</div>
+<button onclick="showCorrection()">Voir la correction</button>
+<script>
+  function showCorrection() {
+    const inputPassword = prompt("Entrez le mot de passe:");
+    const encodedPassword = '69615f747031'; 
+    function toHex(str) {
+      return str.split('').map(char => char.charCodeAt(0).toString(16)).join('');
+    }
+    if (toHex(inputPassword) === encodedPassword) {
+      document.getElementById("correction").style.display = "block";
+    } else {
+      alert("Mot de passe incorrect.");
+    }
+  }
+</script>
 
 2. TP2 : 
 * Sujet : Object detection / counting (Disponible ulterieurement)
@@ -41,3 +60,4 @@ Vous pouvez ensuite lancer un notebook avec la commande:
 ```sh
 jupyter notebook
 ```
+
