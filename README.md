@@ -13,7 +13,6 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 
 1. TP1 : 
 * Sujet : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
-<!-- * Correction : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb) -->
 <button onclick="showCustomPrompt()">Correction</button>
 <div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
   <label for="passwordInput">Entrez le mot de passe :</label>
@@ -21,16 +20,13 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
   <button onclick="checkPassword()">Valider</button>
   <button onclick="closePrompt()">Annuler</button>
 </div>
-
 <script>
   function showCustomPrompt() {
     document.getElementById('customPrompt').style.display = 'block';
   }
-
   function closePrompt() {
     document.getElementById('customPrompt').style.display = 'none';
   }
-
   function checkPassword() {
     const inputPassword = document.getElementById('passwordInput').value;
     const encodedPassword = '69615f747031'; 
