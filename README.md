@@ -9,7 +9,7 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 4. [Réseaux de Neurones Convolutionnels](https://courdier.github.io/ia/slides/cnn.html)
 
 ## TP 
-Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de travail.  
+La plateforme de travail utilisée dans ce cours est *Google Colab* .
 
 * Sujet : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
 <button onclick="showCustomPrompt()">Correction</button>
