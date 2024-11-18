@@ -41,7 +41,6 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 
     if (toHex(inputPassword) === encodedPassword) {
         closePrompt();
-        alert('bon mot de passe');
         window.location.href = 'https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb';
     } else {
         alert('Mot de passe incorrect.');
