@@ -40,13 +40,12 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
     }
 
     if (toHex(inputPassword) === encodedPassword) {
-    document.getElementById('correction').style.display = 'block';
-    // Redirige automatiquement vers la page de correction
-    window.location.href = 'https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb';
-    closePrompt();
-} else {
-    alert('Mot de passe incorrect.');
-}
+        document.getElementById('correction').style.display = 'block';
+        closePrompt();
+        window.location.href = 'https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb';
+    } else {
+        alert('Mot de passe incorrect.');
+    }
   }
 </script>
 
