@@ -34,14 +34,21 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
   function checkPassword() {
     const inputPassword = document.getElementById('passwordInput').value;
     const encodedPassword = '69615f747031'; 
+    const encodedUrl = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62'
 
     function toHex(str) {
       return str.split('').map(char => char.charCodeAt(0).toString(16)).join('');
     }
-
+    function toStrFromHex(hex) {
+        let str = '';
+        for (let i = 0; i < hex.length; i += 2) {
+            str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        }
+        return str;
+    }
     if (toHex(inputPassword) === encodedPassword) {
         closePrompt();
-        window.location.href = 'https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb';
+        window.location.href = toStrFromHex(encodedUrl);
     } else {
         alert('Mot de passe incorrect.');
     }
