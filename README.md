@@ -11,7 +11,6 @@ En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 ## TP 
 Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de travail.  
 
-1. TP1 : 
 * Sujet : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
 <button onclick="showCustomPrompt()">Correction</button>
 <div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
@@ -50,9 +49,6 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
     }
   }
 </script>
-
-2. TP2 : 
-* Sujet : Object detection / counting (Disponible ulterieurement)
 
 ## Tests de connaissances
 
