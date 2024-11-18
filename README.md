@@ -14,10 +14,7 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 1. TP1 : 
 * Sujet : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS.ipynb)
 <!-- * Correction : [Classification d’images satellitaires](https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb) -->
-<div id="correction" style="display:none;">
-  <p>Correction : </p>
-</div>
-<button onclick="showCustomPrompt()">Voir la correction</button>
+<button onclick="showCustomPrompt()">Correction</button>
 <div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
   <label for="passwordInput">Entrez le mot de passe :</label>
   <input type="password" id="passwordInput">
@@ -36,18 +33,20 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 
   function checkPassword() {
     const inputPassword = document.getElementById('passwordInput').value;
-    const encodedPassword = '69615f747031'; // Mot de passe codé en hexadécimal
+    const encodedPassword = '69615f747031'; 
 
     function toHex(str) {
       return str.split('').map(char => char.charCodeAt(0).toString(16)).join('');
     }
 
     if (toHex(inputPassword) === encodedPassword) {
-      document.getElementById('correction').style.display = 'block';
-      closePrompt();
-    } else {
-      alert('Mot de passe incorrect.');
-    }
+    document.getElementById('correction').style.display = 'block';
+    // Redirige automatiquement vers la page de correction
+    window.location.href = 'https://colab.research.google.com/github/courdier/ia/blob/master/TP/TP_1_GIS_Corrected.ipynb';
+    closePrompt();
+} else {
+    alert('Mot de passe incorrect.');
+}
   }
 </script>
 
