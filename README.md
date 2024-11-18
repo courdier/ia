@@ -17,18 +17,36 @@ Pour faire ces TP, vous pouvez utiliser *Google Colab* comme plateforme de trava
 <div id="correction" style="display:none;">
   <p>Correction : </p>
 </div>
-<button onclick="showCorrection()">Voir la correction</button>
+<button onclick="showCustomPrompt()">Voir la correction</button>
+<div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
+  <label for="passwordInput">Entrez le mot de passe :</label>
+  <input type="password" id="passwordInput">
+  <button onclick="checkPassword()">Valider</button>
+  <button onclick="closePrompt()">Annuler</button>
+</div>
+
 <script>
-  function showCorrection() {
-    const inputPassword = prompt("Entrez le mot de passe:");
-    const encodedPassword = '69615f747031'; 
+  function showCustomPrompt() {
+    document.getElementById('customPrompt').style.display = 'block';
+  }
+
+  function closePrompt() {
+    document.getElementById('customPrompt').style.display = 'none';
+  }
+
+  function checkPassword() {
+    const inputPassword = document.getElementById('passwordInput').value;
+    const encodedPassword = '69615f747031'; // Mot de passe codé en hexadécimal
+
     function toHex(str) {
       return str.split('').map(char => char.charCodeAt(0).toString(16)).join('');
     }
+
     if (toHex(inputPassword) === encodedPassword) {
-      document.getElementById("correction").style.display = "block";
+      document.getElementById('correction').style.display = 'block';
+      closePrompt();
     } else {
-      alert("Mot de passe incorrect.");
+      alert('Mot de passe incorrect.');
     }
   }
 </script>
