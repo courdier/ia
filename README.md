@@ -74,4 +74,3 @@ Vous pouvez ensuite lancer un notebook avec la commande:
 ```sh
 jupyter notebook
 ```
-
