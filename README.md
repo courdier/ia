@@ -1,5 +1,5 @@
 <!-- ia_tp1 (pwd) -->
-# Introduction au Machine Learning et Deep Learning
+# Deep Learning for geomatics
 En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
 ## Slides
