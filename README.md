@@ -20,10 +20,7 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
   <button onclick="checkPassword('69615f747031','68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62')">Valider</button>
   <button onclick="closePrompt()">Annuler</button>
 </div>
-<script>
-  // const encodedPasswordTP = '69615f747031'; 
-  /* const encodedUrlTP = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62' */
-  
+<script>  
   function showCustomPrompt() {
     document.getElementById('customPrompt').style.display = 'block';
   }
@@ -55,7 +52,14 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
 ## Tests de connaissances
 
 -  [tests 2024](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1.ipynb)
--  [tests 2024 - CORRECTION](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1_correction.ipynb)
+<button onclick="showCustomPrompt()">Correction</button>
+<div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
+  <label for="passwordInput">Entrez le mot de passe :</label>
+  <input type="password" id="passwordInput">
+  <button onclick="checkPassword('7432303234','68747470733A2F2F636F6C61622E72657365617263682E676F6F676C652E636F6D2F6769746875622F636F7572646965722F69612F626C6F622F6D61737465722F4578616D312F323032345F6578616D315F636F7272656374696F6E2E6970796E62')">Valider</button>
+  <button onclick="closePrompt()">Annuler</button>
+</div>
+<!-- -  [tests 2024 - CORRECTION](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1_correction.ipynb) -->
 
 ## Liens web 
 
