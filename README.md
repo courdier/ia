@@ -1,4 +1,5 @@
 <!-- ia_tp1 (pwd) -->
+<!-- t2024 -->
 # Deep Learning for geomatics
 En ligne sur [courdier.github.io/ia/](https://courdier.github.io/ia/)
 
@@ -20,6 +21,9 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
   <button onclick="closePrompt()">Annuler</button>
 </div>
 <script>
+  const encodedPasswordTP = '69615f747031'; 
+  const encodedUrlTP = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62'
+  
   function showCustomPrompt() {
     document.getElementById('customPrompt').style.display = 'block';
   }
@@ -41,9 +45,9 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
         }
         return str;
     }
-    if (toHex(inputPassword) === encodedPassword) {
+    if (toHex(inputPassword) === encodedPasswordTP) {
         closePrompt();
-        window.location.href = toStrFromHex(encodedUrl);
+        window.location.href = toStrFromHex(encodedUrlTP);
     } else {
         alert('Mot de passe incorrect.');
     }
@@ -53,6 +57,7 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
 ## Tests de connaissances
 
 -  [tests 2024](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1.ipynb)
+-  [Coorection tests 2024](https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1_correction.ipynb)
 
 ## Liens web 
 
