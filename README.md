@@ -52,8 +52,8 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
 
 ## Tests de connaissances
 
--  [Cours & TP Classification] A venir
-<!-- (https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2023_exam1.ipynb) -->
+-  [tests]
+(https://colab.research.google.com/github/courdier/ia/blob/master/Exam1/2024_exam1.ipynb) -->
 
 ## Liens web 
 
