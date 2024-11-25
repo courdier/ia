@@ -17,12 +17,12 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
 <div id="customPrompt" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;">
   <label for="passwordInput">Entrez le mot de passe :</label>
   <input type="password" id="passwordInput">
-  <button onclick="checkPassword()">Valider</button>
+  <button onclick="checkPassword('69615f747031','68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62')">Valider</button>
   <button onclick="closePrompt()">Annuler</button>
 </div>
 <script>
-  const encodedPasswordTP = '69615f747031'; 
-  const encodedUrlTP = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62'
+  // const encodedPasswordTP = '69615f747031'; 
+  /* const encodedUrlTP = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62' */
   
   function showCustomPrompt() {
     document.getElementById('customPrompt').style.display = 'block';
@@ -30,11 +30,9 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
   function closePrompt() {
     document.getElementById('customPrompt').style.display = 'none';
   }
-  function checkPassword() {
+  function checkPassword(encodedPassword, encodedUrl) {
     const inputPassword = document.getElementById('passwordInput').value;
-    const encodedPassword = '69615f747031'; 
-    const encodedUrl = '68747470733a2f2f636f6c61622e72657365617263682e676f6f676c652e636f6d2f6769746875622f636f7572646965722f69612f626c6f622f6d61737465722f54502f54505f315f4749535f436f727265637465642e6970796e62'
-
+ 
     function toHex(str) {
       return str.split('').map(char => char.charCodeAt(0).toString(16)).join('');
     }
@@ -45,9 +43,9 @@ La plateforme de travail utilisée dans ce cours est *Google Colab* .
         }
         return str;
     }
-    if (toHex(inputPassword) === encodedPasswordTP) {
+    if (toHex(inputPassword) === encodedPassword) {
         closePrompt();
-        window.location.href = toStrFromHex(encodedUrlTP);
+        window.location.href = toStrFromHex(encodedUrl);
     } else {
         alert('Mot de passe incorrect.');
     }
